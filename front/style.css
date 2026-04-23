@@ -1,0 +1,329 @@
+:root {
+    /* Color Palette */
+    --bg-overlay: rgba(15, 23, 42, 0.75);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    
+    --primary-color: #3b82f6; /* Blue */
+    --primary-hover: #2563eb;
+    
+    --accent-color: #10b981; /* Green */
+    --danger-color: #ef4444; /* Red */
+    
+    --input-bg: #f8fafc;
+    --input-border: #cbd5e1;
+    --input-focus: #3b82f6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+}
+
+body {
+    /* Background Image of Houses */
+    background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Dark overlay over the background image */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bg-overlay);
+    z-index: 0;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 0 2rem;
+    z-index: 1;
+    position: relative;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: white;
+}
+
+.header-content h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.tab-btn.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Forms Sections */
+.form-section {
+    display: none;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.form-section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Card Style */
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+/* Form Inputs */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.input-row {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.input-row .input-group {
+    flex: 1;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.input-group input {
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    color: var(--text-primary);
+    padding: 0.875rem 1.25rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.input-group.highlight input {
+    border-color: var(--primary-color);
+    background: #eff6ff;
+}
+
+/* Buttons */
+.submit-btn {
+    margin-top: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* Results Section */
+.result-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-box.hidden {
+    display: none;
+}
+
+.result-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.result-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Demand Result Indicators */
+.demand-success, .demand-fail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+
+.demand-success .status-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demand-fail .status-indicator {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--danger-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demand-success .result-message {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.demand-fail .result-message {
+    color: var(--danger-color);
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Loading State for Buttons */
+.loading {
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+.loading-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .input-row {
+        flex-direction: column;
+    }
+    
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .tabs {
+        flex-direction: column;
+        border-radius: 20px;
+        width: 100%;
+    }
+    
+    .tab-btn {
+        justify-content: center;
+    }
+}

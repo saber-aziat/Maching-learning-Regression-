@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prédiction Immobilière Casablanca</title>
+    <!-- Modern Font: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background handled by CSS -->
+    
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fa-solid fa-city"></i> Régression des prix des maisons à Casablanca</h1>
+                <p class="subtitle">Estimation intelligente basée sur le Machine Learning</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" data-target="form-price">
+                    <i class="fa-solid fa-tag"></i> Prédire Prix Maison
+                </button>
+                <button class="tab-btn" data-target="form-demand">
+                    <i class="fa-solid fa-chart-line"></i> Prédire Demande Maison
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Form 1: Price Prediction -->
+            <section id="form-price" class="form-section active">
+                <div class="card">
+                    <h2>Estimer le prix de votre bien</h2>
+                    <form id="priceForm">
+                        <div class="input-group">
+                            <label for="p-income">Area Income (DHs)</label>
+                            <input type="number" id="p-income" required placeholder="Ex: 80000" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label for="p-age">House Age (Années)</label>
+                            <input type="number" id="p-age" required placeholder="Ex: 5.5" step="any">
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="p-rooms">Number of Rooms</label>
+                                <input type="number" id="p-rooms" required placeholder="Ex: 6" step="any">
+                            </div>
+                            <div class="input-group">
+                                <label for="p-bedrooms">Number of Bedrooms</label>
+                                <input type="number" id="p-bedrooms" required placeholder="Ex: 3" step="any">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="p-population">Area Population</label>
+                            <input type="number" id="p-population" required placeholder="Ex: 35000" step="any">
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Prédire</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                    
+                    <div id="price-result" class="result-box hidden">
+                        <span class="result-label">Prix Estimé</span>
+                        <h3 class="result-value">--</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Form 2: Demand Prediction -->
+            <section id="form-demand" class="form-section">
+                <div class="card">
+                    <h2>Analyser l'intérêt de la maison</h2>
+                    <form id="demandForm">
+                        <div class="input-group">
+                            <label for="d-income">Area Income ($)</label>
+                            <input type="number" id="d-income" required placeholder="Ex: 80000" step="any">
+                        </div>
+                        <div class="input-group">
+                            <label for="d-age">House Age (Années)</label>
+                            <input type="number" id="d-age" required placeholder="Ex: 5.5" step="any">
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="d-rooms">Number of Rooms</label>
+                                <input type="number" id="d-rooms" required placeholder="Ex: 6" step="any">
+                            </div>
+                            <div class="input-group">
+                                <label for="d-bedrooms">Number of Bedrooms</label>
+                                <input type="number" id="d-bedrooms" required placeholder="Ex: 3" step="any">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="d-population">Area Population</label>
+                            <input type="number" id="d-population" required placeholder="Ex: 35000" step="any">
+                        </div>
+                        <div class="input-group highlight">
+                            <label for="d-price">Price (Prix de la maison en $)</label>
+                            <input type="number" id="d-price" required placeholder="Ex: 1200000" step="any">
+                        </div>
+                        <button type="submit" class="submit-btn primary">
+                            <span>Analyser</span>
+                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                        </button>
+                    </form>
+                    
+                    <div id="demand-result" class="result-box hidden">
+                        <div class="status-indicator"></div>
+                        <h3 class="result-message">--</h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
